@@ -22,9 +22,9 @@ local batteryarc_widget = require("awesome-wm-widgets.batteryarc-widget.batterya
 local volume_widget = require("awesome-wm-widgets.volume-widget.volume")
 
 --Autostart
-awful.spawn.with_shell("picom &")
 awful.spawn.with_shell("nitrogen --restore &")
 awful.spawn.with_shell("nm-applet --indicator &")
+awful.spawn.with_shell("picom --config ~/.config/picom/picom.conf &")
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -291,6 +291,10 @@ globalkeys = gears.table.join(
 
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
+              {description = "open a terminal", group = "launcher"}),
+    awful.key({ modkey, "Shift"   }, "f", function () awful.spawn("pcmanfm") end,
+              {description = "File Manager", group = "launcher"}),
+    awful.key({ modkey, "Shift"   }, "b", function () awful.spawn("firefox") end,
               {description = "open a terminal", group = "launcher"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
