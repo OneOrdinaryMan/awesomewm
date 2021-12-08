@@ -17,6 +17,9 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
+--awesome-wm widgets
+local batteryarc_widget = require("awesome-wm-widgets.batteryarc-widget.batteryarc")
+local volume_widget = require("awesome-wm-widgets.volume-widget.volume")
 
 --Autostart
 awful.spawn.with_shell("picom &")
@@ -215,6 +218,8 @@ awful.screen.connect_for_each_screen(function(s)
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             mykeyboardlayout,
+	    batteryarc_widget(),
+	    volume_widget(),
             wibox.widget.systray(),
             mytextclock,
             s.mylayoutbox,
@@ -241,6 +246,13 @@ globalkeys = gears.table.join(
               {description = "view next", group = "tag"}),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
+-- Xf86 keys
+    awful.key({}, "XF86AudioMute",     function () awful.util.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle") end,
+              {description = "Mute/Unmute", group = "XF86"}),
+    awful.key({}, "XF86AudioRaiseVolume",     function () awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ +10%") end,
+              {description = "Volume Up", group = "XF86"}),
+    awful.key({}, "XF86AudioLowerVolume",     function () awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ -10%") end,
+              {description = "Volume Down", group = "XF86"}),
 
     awful.key({ modkey,           }, "j",
         function ()
@@ -376,6 +388,7 @@ clientkeys = gears.table.join(
         end ,
         {description = "(un)maximize horizontally", group = "client"})
 )
+
 
 -- Bind all key numbers to tags.
 -- Be careful: we use keycodes to make it work on any keyboard layout.
