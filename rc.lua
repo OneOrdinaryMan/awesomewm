@@ -292,7 +292,7 @@ globalkeys = gears.table.join(
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
               {description = "open a terminal", group = "launcher"}),
-    awful.key({ modkey, "Shift"   }, "f", function () awful.spawn("pcmanfm") end,
+    awful.key({ modkey, "Shift"   }, "f", function () awful.spawn("alacritty -e ranger") end,
               {description = "File Manager", group = "launcher"}),
     awful.key({ modkey, "Shift"   }, "b", function () awful.spawn("firefox") end,
               {description = "open a terminal", group = "launcher"}),
