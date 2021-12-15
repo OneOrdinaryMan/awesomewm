@@ -488,6 +488,7 @@ awful.rules.rules = {
         class = {
           "Arandr",
           "Blueman-manager",
+	  "MEGAsync",
           "Gpick",
           "Kruler",
           "MessageWin",  -- kalarm.
