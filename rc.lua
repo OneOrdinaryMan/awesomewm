@@ -25,6 +25,7 @@ local volume_widget = require("awesome-wm-widgets.volume-widget.volume")
 awful.spawn.with_shell("nitrogen --restore &")
 awful.spawn.with_shell("nm-applet --indicator &")
 awful.spawn.with_shell("picom --config ~/.config/picom/picom.conf &")
+awful.spawn.with_shell("/usr/bin/emacs --daemon &")
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -253,6 +254,12 @@ globalkeys = gears.table.join(
               {description = "Volume Up", group = "XF86"}),
     awful.key({}, "XF86AudioLowerVolume",     function () awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ -10%") end,
               {description = "Volume Down", group = "XF86"}),
+    awful.key({}, "XF86AudioPlay",     function () awful.util.spawn("mpc toggle") end,
+              {description = "Play/Pause", group = "XF86"}),
+    awful.key({}, "XF86AudioNext",     function () awful.util.spawn("mpc next") end,
+              {description = "Next", group = "XF86"}),
+    awful.key({}, "XF86AudioPrev",     function () awful.util.spawn("mpc prev") end,
+              {description = "Prev", group = "XF86"}),
 
     awful.key({ modkey,           }, "j",
         function ()
@@ -300,6 +307,9 @@ globalkeys = gears.table.join(
               {description = "reload awesome", group = "awesome"}),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
               {description = "quit awesome", group = "awesome"}),
+    awful.key({ modkey, "Shift"   }, "e", function () awful.spawn("emacsclient -c -a 'emacs'") end,
+              {description = "launch emacs", group = "launcher"}),
+
 
     awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)          end,
               {description = "increase master width factor", group = "layout"}),
