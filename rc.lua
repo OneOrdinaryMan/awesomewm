@@ -25,7 +25,7 @@ local volume_widget = require("awesome-wm-widgets.volume-widget.volume")
 awful.spawn.with_shell("nitrogen --restore &")
 awful.spawn.with_shell("nm-applet --indicator &")
 awful.spawn.with_shell("picom --config ~/.config/picom/picom.conf &")
-awful.spawn.with_shell("/usr/bin/emacs --daemon &")
+awful.spawn.with_shell("emacs --daemon &")
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -301,14 +301,16 @@ globalkeys = gears.table.join(
               {description = "open a terminal", group = "launcher"}),
     awful.key({ modkey, "Shift"   }, "f", function () awful.spawn("alacritty -e ranger") end,
               {description = "File Manager", group = "launcher"}),
-    awful.key({ modkey, "Shift"   }, "b", function () awful.spawn("firefox") end,
-              {description = "open a terminal", group = "launcher"}),
+    awful.key({ modkey, "Shift"   }, "b", function () awful.spawn("qutebrowser") end,
+              {description = "open qutebrowser", group = "launcher"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
               {description = "quit awesome", group = "awesome"}),
-    awful.key({ modkey, "Shift"   }, "e", function () awful.spawn("emacsclient -c -a 'emacs'") end,
+    awful.key({ modkey, "Shift"   }, "e", function () awful.spawn("emacsclient -c -a ''") end,
               {description = "launch emacs", group = "launcher"}),
+    awful.key({ modkey, "Shift"   }, "m", function () awful.spawn("alacritty -e ncmpcpp") end,
+              {description = "Ncmpcpp", group = "launcher"}),
 
 
     awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)          end,
