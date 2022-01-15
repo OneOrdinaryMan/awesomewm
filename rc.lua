@@ -23,6 +23,7 @@ local volume_widget = require("awesome-wm-widgets.volume-widget.volume")
 
 --Autostart
 awful.spawn.with_shell("nitrogen --restore &")
+awful.spawn.with_shell("udiskie -At &")
 awful.spawn.with_shell("nm-applet --indicator &")
 awful.spawn.with_shell("picom --config ~/.config/picom/picom.conf &")
 awful.spawn.with_shell("emacs --daemon &")
