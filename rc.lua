@@ -491,6 +491,10 @@ awful.rules.rules = {
      }
     },
 
+    { rule_any = {
+	class = {
+	"mpv"}
+      }, properties = { fullscreen = true }},
     -- Floating clients.
     { rule_any = {
         instance = {
