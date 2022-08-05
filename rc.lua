@@ -308,7 +308,7 @@ globalkeys = gears.table.join(
               {description = "reload awesome", group = "awesome"}),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
               {description = "quit awesome", group = "awesome"}),
-    awful.key({ modkey, "Shift"   }, "e", function () awful.spawn("emacsclient -c -a ''") end,
+    awful.key({ modkey, "Shift"   }, "e", function () awful.spawn("emacsclient -c -a 'emacs'") end,
               {description = "launch emacs", group = "launcher"}),
     awful.key({ modkey, "Shift"   }, "m", function () awful.spawn("alacritty -e ncmpcpp") end,
               {description = "Ncmpcpp", group = "launcher"}),
@@ -492,8 +492,9 @@ awful.rules.rules = {
     },
 
     { rule_any = {
-	class = {
-	"mpv"}
+          class = {
+              "mpv",
+              "Kodi"}
       }, properties = { fullscreen = true }},
     -- Floating clients.
     { rule_any = {
@@ -505,11 +506,11 @@ awful.rules.rules = {
         class = {
           "Arandr",
           "Blueman-manager",
-	  "MEGAsync",
+          "MEGAsync",
           "Gpick",
           "Kruler",
           "MessageWin",  -- kalarm.
-          "Sxiv",
+          "nsxiv",
           "Tor Browser", -- Needs a fixed window size to avoid fingerprinting by screen size.
           "Wpa_gui",
           "veromix",
