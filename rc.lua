@@ -304,6 +304,8 @@ globalkeys = gears.table.join(
               {description = "File Manager", group = "launcher"}),
     awful.key({ modkey, "Shift"   }, "b", function () awful.spawn("qutebrowser") end,
               {description = "open qutebrowser", group = "launcher"}),
+    awful.key({ modkey, "Shift"   }, "k", function () awful.spawn("kodi-standalone") end,
+              {description = "open kodi", group = "launcher"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
