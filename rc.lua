@@ -304,16 +304,14 @@ globalkeys = gears.table.join(
               {description = "File Manager", group = "launcher"}),
     awful.key({ modkey, "Shift"   }, "b", function () awful.spawn("qutebrowser") end,
               {description = "open qutebrowser", group = "launcher"}),
-    awful.key({ modkey, "Shift"   }, "k", function () awful.spawn("kodi-standalone") end,
-              {description = "open kodi", group = "launcher"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
               {description = "quit awesome", group = "awesome"}),
     awful.key({ modkey, "Shift"   }, "e", function () awful.spawn("emacsclient -c -a 'emacs'") end,
               {description = "launch emacs", group = "launcher"}),
-    awful.key({ modkey, "Shift"   }, "m", function () awful.spawn("alacritty -e ncmpcpp") end,
-              {description = "Ncmpcpp", group = "launcher"}),
+    awful.key({ modkey, "Shift"   }, "m", function () awful.util.spawn_with_shell("~/.scripts/media.sh") end,
+              {description = "Media launcher", group = "launcher"}),
 
 
     awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)          end,
