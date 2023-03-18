@@ -11,7 +11,8 @@ local wibox = require("wibox")
 -- Theme handling library
 local beautiful = require("beautiful")
 -- Notification library
-local naughty = require("naughty")
+--local naughty = require("naughty")
+package.loaded["naughty.dbus"] = {}
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
 -- Enable hotkeys help widget for VIM and other apps
@@ -23,10 +24,14 @@ local volume_widget = require("awesome-wm-widgets.volume-widget.volume")
 
 --Autostart
 awful.spawn.with_shell("nitrogen --restore &")
-awful.spawn.with_shell("udiskie -At &")
+awful.spawn.with_shell("dunst &")
+awful.spawn.with_shell("pkill udiskie; udiskie -At &")
+awful.spawn.with_shell("pkill telegram-desktop; telegram-desktop &")
+awful.spawn.with_shell("pkill megasync; megasync &")
 awful.spawn.with_shell("nm-applet --indicator &")
 awful.spawn.with_shell("picom --config ~/.config/picom/picom.conf &")
 awful.spawn.with_shell("emacs --daemon &")
+awful.spawn.with_shell("~/.scripts/brightness_startup.sh")
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -265,8 +270,8 @@ globalkeys = gears.table.join(
               {description = "Next", group = "XF86"}),
     awful.key({}, "XF86AudioPrev",     function () awful.util.spawn("mpc prev") end,
               {description = "Prev", group = "XF86"}),
-    awful.key({modkey,	}, "l",     function () awful.util.spawn("slock") end,
-              {description = "Prev", group = "XF86"}),
+    awful.key({modkey, "Control"	}, "l",     function () awful.util.spawn("slock") end,
+              {description = "Lock", group = "XF86"}),
 
     awful.key({ modkey,           }, "j",
         function ()
@@ -309,6 +314,8 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Shift"   }, "f", function () awful.spawn("alacritty -e ranger") end,
               {description = "File Manager", group = "launcher"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
+              {description = "reload awesome", group = "awesome"}),
+    awful.key({ modkey, "Control" }, "n", function () awful.spawn("dunstctl history-pop") end,
               {description = "reload awesome", group = "awesome"}),
     awful.key({ modkey, "Shift"   }, "e", function () awful.spawn("emacsclient -c -a 'emacs'") end,
               {description = "launch emacs", group = "launcher"}),
