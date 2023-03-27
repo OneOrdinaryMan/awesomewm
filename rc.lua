@@ -62,7 +62,7 @@ end
 beautiful.init(gears.filesystem.get_configuration_dir() .."theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "alacritty"
+terminal = "wezterm"
 editor = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -311,7 +311,7 @@ globalkeys = gears.table.join(
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
               {description = "open a terminal", group = "launcher"}),
-    awful.key({ modkey, "Shift"   }, "f", function () awful.spawn("alacritty -e ranger") end,
+    awful.key({ modkey, "Shift"   }, "f", function () awful.spawn("wezterm start --always-new-process ranger") end,
               {description = "File Manager", group = "launcher"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
