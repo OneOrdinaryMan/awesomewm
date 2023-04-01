@@ -26,8 +26,6 @@ local volume_widget = require("awesome-wm-widgets.volume-widget.volume")
 awful.spawn.with_shell("nitrogen --restore &")
 awful.spawn.with_shell("dunst &")
 awful.spawn.with_shell("pkill udiskie; udiskie -At &")
-awful.spawn.with_shell("pkill telegram-desktop; telegram-desktop &")
-awful.spawn.with_shell("pkill megasync; megasync &")
 awful.spawn.with_shell("nm-applet --indicator &")
 awful.spawn.with_shell("picom --config ~/.config/picom/picom.conf &")
 awful.spawn.with_shell("emacs --daemon &")
@@ -359,7 +357,7 @@ globalkeys = gears.table.join(
               {description = "restore minimized", group = "client"}),
 
     -- Prompt
-    awful.key({ modkey },            "r",     function () awful.util.spawn("dmenu_run") end,
+    awful.key({ modkey },            "r",     function () awful.util.spawn("rofi -show drun") end,
               {description = "run prompt", group = "launcher"}),
 
     awful.key({ modkey }, "x",
