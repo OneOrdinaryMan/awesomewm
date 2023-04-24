@@ -319,6 +319,8 @@ globalkeys = gears.table.join(
               {description = "launch emacs", group = "launcher"}),
     awful.key({ modkey, "Shift"   }, "q", function () awful.util.spawn_with_shell("~/.scripts/shutdown.sh") end,
               {description = "shutdown script", group = "launcher"}),
+    awful.key({ modkey, "Shift"   }, "p", function () awful.util.spawn_with_shell("rofi-pass") end,
+              {description = "Password menu", group = "launcher"}),
     awful.key({ modkey, "Shift"   }, "m", function () awful.util.spawn_with_shell("~/.scripts/media.sh") end,
               {description = "Media launcher", group = "launcher"}),
     awful.key({ modkey, "Shift"   }, "g", function () awful.util.spawn_with_shell("~/.scripts/games.sh") end,
