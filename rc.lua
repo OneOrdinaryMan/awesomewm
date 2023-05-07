@@ -318,7 +318,7 @@ globalkeys = gears.table.join(
     -- Standard program
     awful.key({ modkey, }, "Return", function() awful.spawn(terminal) end,
         { description = "open a terminal", group = "launcher" }),
-    awful.key({ modkey, "Shift" }, "f", function() awful.spawn("wezterm start --always-new-process lf") end,
+    awful.key({ modkey, "Shift" }, "f", function() awful.spawn("wezterm start --always-new-process lfrun") end,
         { description = "File Manager", group = "launcher" }),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
         { description = "reload awesome", group = "awesome" }),
