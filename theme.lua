@@ -30,22 +30,22 @@ local theme                                     = {}
 
 theme.font                                      = "JetBrains Mono Normal 10"
 
-theme.bg_normal                                 = "#2E3440"
-theme.bg_focus                                  = "#4C566A"
+theme.bg_normal                                 = "#000000"
+theme.bg_focus                                  = "#2A2A2A"
 theme.bg_urgent                                 = "#BF616A"
-theme.bg_minimize                               = "#EBCB8B"
+theme.bg_minimize                               = "#E78C45"
 theme.bg_systray                                = theme.bg_normal
 
-theme.fg_normal                                 = "#5E81AC"
-theme.fg_focus                                  = "#8FBCBB"
-theme.fg_urgent                                 = "#848EAD"
-theme.fg_minimize                               = "#D08770"
+theme.fg_normal                                 = "#989696"
+theme.fg_focus                                  = "#EAEAEA"
+theme.fg_urgent                                 = "#7AA6DA"
+theme.fg_minimize                               = "#70C0B1"
 
 theme.useless_gap                               = dpi(1)
 theme.border_width                              = dpi(2)
-theme.border_normal                             = "#D8DEE9"
-theme.border_focus                              = "#E5E9F0"
-theme.border_marked                             = "#ECEFF4"
+theme.border_normal                             = "#989696"
+theme.border_focus                              = "#EAEAEA"
+theme.border_marked                             = "#7AA6DA"
 -- There are other variable sets
 -- overriding the default one when
 -- defined, the sets are:
