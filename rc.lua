@@ -351,7 +351,7 @@ globalkeys = gears.table.join(
         { description = "Media launcher", group = "launcher" }),
     awful.key({ modkey, "Shift" }, "g", function() awful.util.spawn_with_shell("~/.scripts/games.sh") end,
         { description = "Games launcher", group = "launcher" }),
-    awful.key({ modkey, "Shift" }, "b", function() awful.util.spawn_with_shell("~/.scripts/Browser.sh") end,
+    awful.key({ modkey, "Shift" }, "b", function() awful.util.spawn_with_shell("browser-launcher") end,
         { description = "Browser launcher", group = "launcher" }),
     awful.key({ modkey, }, "l", function() awful.tag.incmwfact(0.05) end,
         { description = "increase master width factor", group = "layout" }),
